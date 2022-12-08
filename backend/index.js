@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 const dbConnect = require("./utils/dbConnect");
 const { connectToServer } = require("./utils/dbConnect");
 const errorHandler = require("./middleware/errorHandler");
+const blogsRoutes = require('./routes/blogsRoutes.js')
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +22,9 @@ connectToServer((err) => {
         console.log(err)
     }
 });
+
+// route
+app.use("/product", blogsRoutes)
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
