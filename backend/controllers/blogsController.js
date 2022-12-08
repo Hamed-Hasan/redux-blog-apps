@@ -42,3 +42,19 @@ module.exports.getBlogDetail = async (req, res, next) => {
     next(error)
  }
 }
+module.exports.deleteSingleBlog = async (req, res, next) => {
+ try {
+    const db = getDb();
+    const { id } = req.params;
+    if(!ObjectId.isValid(id)) {
+        return res.status(400).send({success:false, message: "Invalid ID"})
+    }
+    const blogs = await db.collection("blogs").deleteOne({_id: ObjectId(id)})
+    if(!blogs) {
+        return res.status(400).send({success: false, message: "Could'n deleted the blog please try again later!!!"})
+    }
+    res.status(200).send({success:true, message: "successfully deleted the blog"});
+ } catch (error) {
+    next(error)
+ }
+}

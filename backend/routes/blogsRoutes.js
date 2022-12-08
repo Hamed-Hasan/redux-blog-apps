@@ -8,4 +8,5 @@ router.route("/")
 
 router.route("/:id")
 .get(blogsController.getBlogDetail)
+.delete(blogsController.deleteSingleBlog)
 module.exports = router;
