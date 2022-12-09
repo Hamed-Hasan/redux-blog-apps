@@ -6,7 +6,7 @@ import fetchBlogsData from '../../redux/thunk/fetchBlogs';
 
 const BlogList = () => {
     const dispatch = useDispatch();
-    const blogs = useSelector((state) => state.blogs[0])
+    const blogs = useSelector((state) => state.blog?.blogs[0])
 
   
     useEffect(() => {   

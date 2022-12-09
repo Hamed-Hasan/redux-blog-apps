@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import blogDetail from '../utils/blogDetail';
-import '../main'
+
+import '../main';
+import blogDetail from '../utils/blogDetail'
 const Blog = () => {
     const {blogId} = useParams()
     const [blog] = blogDetail(blogId)

@@ -1,0 +1,2 @@
+export const TOGGLE_STOCK = 'TOGGLE_STOCK';
+export const TOGGLE_CATEGORY = 'TOGGLE_CATEGORY';
