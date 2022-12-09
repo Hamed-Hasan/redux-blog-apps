@@ -10,7 +10,7 @@ module.exports.createTool = async (req, res, next) => {
         if(!result.insertedId){
            return res.status(400).send({success: false, message: "something went wrong"})
         }
-        res.send({success: true, message: `Blogs added with id ${result.insertedId}`});
+        res.send({success: true, message:result });
 
     } catch (error) {
         next(error);
