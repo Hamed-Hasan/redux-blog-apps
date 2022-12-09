@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { Outlet } from "react-router-dom";
 const Main = () => {
     return (
-        <div>
+        <div className='bg-[#0B1120] h-full'>
             <Navbar/>
             <Outlet/>
             

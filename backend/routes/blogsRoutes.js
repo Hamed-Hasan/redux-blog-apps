@@ -9,4 +9,5 @@ router.route("/")
 router.route("/:id")
 .get(blogsController.getBlogDetail)
 .delete(blogsController.deleteSingleBlog)
+.patch(blogsController.updateSingleBlog)
 module.exports = router;

@@ -5,8 +5,8 @@ module.exports.createTool = async (req, res, next) => {
     try {
         const db = getDb();
         const blogs = req.body;
-        const postDate = new Date().toLocaleString(); // new Date() > dd/mm/yy
-        const result = await db.collection ("blogs").insertOne({blogs, postDate});
+        // const postDate = new Date().toLocaleString(); // new Date() > dd/mm/yy
+        const result = await db.collection("blogs").insertOne(blogs); // {blogs, postDate}
         if(!result.insertedId){
            return res.status(400).send({success: false, message: "something went wrong"})
         }
@@ -58,3 +58,21 @@ module.exports.deleteSingleBlog = async (req, res, next) => {
     next(error)
  }
 }
+module.exports.updateSingleBlog = async (req, res, next) => {
+ try {
+    const db = getDb();
+    const { id } = req.params;
+    const updateDate = new Date().toLocaleString();
+    if(!ObjectId.isValid(id)) {
+        return res.status(400).send({success:false, message: "Invalid ID"})
+    }
+    const blogs = await db.collection("blogs").updateOne({_id: ObjectId(id)},  { $currentDate: {dateModified: true},$set: req.body})
+    if(!blogs) {
+        return res.status(400).send({success: false, message: "Could'n updated the blog please try again later!!!"})
+    }
+    res.status(200).send({success:true, message: "successfully updated the blog"});
+ } catch (error) {
+    next(error)
+ }
+}
+
