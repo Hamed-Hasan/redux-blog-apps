@@ -53,7 +53,7 @@ module.exports.deleteSingleBlog = async (req, res, next) => {
     if(!blogs) {
         return res.status(400).send({success: false, message: "Could'n deleted the blog please try again later!!!"})
     }
-    res.status(200).send({success:true, message: "successfully deleted the blog"});
+    res.status(200).send({success:true, message: blogs});
  } catch (error) {
     next(error)
  }
