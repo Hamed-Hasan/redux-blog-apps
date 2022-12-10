@@ -30,8 +30,9 @@ const BlogCard = ({blog}) => {
         </ul>
       </div>
         </div>
-        <div class="px-6 ">
+        <div class="flex justify-evenly">
           <span class="inline-block bg-teal-900 text-[#3ABAB4] rounded-full px-3 text-sm font-semibold  mr-2 pb-1">{blog.category}</span>
+          <span class="inline-block bg-teal-900 text-[#3ABAB4] rounded-full px-3 text-sm font-semibold  mr-2 pb-1">Publish Date {blog.date}</span>
         </div>
         <div className='flex gap-2 mt-5 m-3'>
        

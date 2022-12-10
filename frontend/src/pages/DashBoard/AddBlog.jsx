@@ -6,10 +6,12 @@ import addBlog from '../../redux/thunk/addBlog';
 const AddBlog = () => {
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
+    const today = new Date().toLocaleTimeString();
     const submit = (data) => {
     
         const blogs = {
             title: data.title,
+            date: today,
             category: data.category,
             rating: data.rating,
             image: data.image,
