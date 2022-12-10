@@ -1,4 +1,4 @@
-import { ADD_BLOG, DELETE_BLOG, LOAD_PRODUCT } from "../actionTypes/actionTypes"
+import { ADD_BLOG, DELETE_BLOG, LOAD_PRODUCT, UPDATE_BLOG } from "../actionTypes/actionTypes"
 
 export const loadBlog = (blog) => {
     return {
@@ -18,5 +18,12 @@ export const addSingleBlog = (data) => {
     return {
         type : ADD_BLOG,
         payload: data,
+    }
+}
+
+export const updateSingleBlog = (blogId) => {
+    return {
+        type: UPDATE_BLOG,
+        payload: blogId,
     }
 }

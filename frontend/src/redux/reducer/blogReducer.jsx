@@ -1,4 +1,4 @@
-import { ADD_BLOG, DELETE_BLOG, LOAD_PRODUCT } from "../actionTypes/actionTypes";
+import { ADD_BLOG, DELETE_BLOG, LOAD_PRODUCT, UPDATE_BLOG } from "../actionTypes/actionTypes";
 
 const initialState = {
     blogs: [],
@@ -22,6 +22,14 @@ export const blogReducer = (state = initialState, action) => {
                 ...state,
                 blogs: [...state.blogs, action.payload]
             }
+        case UPDATE_BLOG:
+            const updatedBlog = state.blogs.map((blog) => {
+                if(blog._id === action.payload._id) {
+                    return { ...action };
+                }
+                return blog
+            })
+            return { ...state, blogs: updatedBlog };
         default:
             return state;
     }
